@@ -1,0 +1,10 @@
+# Photo Cartonizer
+# pip install opencv-python
+from cv2 import *
+photo = imread("test1.png")
+grayscale = cvtColor(photo, COLOR_BGR2GRAY)
+grayscale = medianBlur(grayscale, 5)
+grayscale = adaptiveThreshold(grayscale, 255, ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY, 9, 9)
+cartoon = bilateralFilter(photo, 9, 250, 250)
+cartoonize = bitwise_and(cartoon, cartoon, mask=grayscale)
+imwrite("cartoon.png", cartoonize)
