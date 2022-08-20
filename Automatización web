@@ -1,0 +1,36 @@
+# Web Automation 
+# pip install playwright
+from playwright.sync_api import sync_playwright
+with sync_playwright() as web:
+    driver = web.chromium.launch()
+    web_page = driver.new_page()
+    # Navigate to the URL
+    web_page.goto('https://www.example.com/')
+    # Select with Text selector
+    web_page.locator("text=login").click()
+    # Select with Css Selector
+    web_page.locator("#nav-bar").click()
+    # Select with Xpath
+    web_page.locator("//*[@id='btn']").click()
+    # Do Text Input
+    web_page.locator("#input").fill("Parse")
+    # Type Text
+    web_page.locator("#input").type("Good one")
+    # Mouse Clicks
+    web_page.locator("#btn").click()
+    # Double Click
+    web_page.locator("#btn").dblclick()
+    # Right Click
+    web_page.locator("#btn").click(button="right")
+    # Hower to Element
+    web_page.locator("#btn").hover()
+    # Keys Command
+    web_page.locator("#btn").press("Enter")
+    # Upload files to element
+    web_page.locator("#upload").set_input_files("test.png")
+    # Focus on the Element
+    web_page.locator("#btn").focus()
+    # Wait for the Element to be visible
+    web_page.wait_for_selector("#btn")
+    # Execute JS Script
+    web_page.evaluate("document.getElementById('btn').click()")
