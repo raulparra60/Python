@@ -1,0 +1,13 @@
+# Get Daily News
+# pip install bs4
+# pip install urllib3
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
+url="https://news.google.com/news/rss"
+data=urlopen(url)
+xml=data.read()
+html=BeautifulSoup(xml,"xml")
+Daily_news=html.find_all("item")
+for news in Daily_news:
+   print("Title: ", news.title.text)
+   print("News Url: ", news.link.text)
