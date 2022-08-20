@@ -15,3 +15,4 @@ response = api.request('GET', url, headers=user_agent)
 # Use proxy
 r = urllib3.ProxyManager('http://proxy.example.com:8080')
 response = api.request('GET', url)
+ 
