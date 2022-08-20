@@ -1,0 +1,11 @@
+# Whatsapp Marketing Bot
+# pip install whatsappy-py
+from whatsappy import Whatsapp
+def Send_Msg(contacts, msg):
+    pywhat = Whatsapp()
+    pywhat.login(visible=False)
+    for contact in contacts:
+        cont = pywhat.chat(contact)
+        cont.send(msg)
+pywhat.close()
+Send_Msg(["Bob", "John"], "Medium Article")
