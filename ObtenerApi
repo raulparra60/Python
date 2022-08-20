@@ -1,0 +1,17 @@
+# Fetch API
+# pip install urllib3
+import urllib3
+# Fetch API 
+api = urllib3.PoolManager()
+url = "https://api.github.com/users/example/repos"
+response = api.request('GET', url)
+# Get status 
+status = response.status
+# Get data
+data = response.data
+# User agent
+user_agent = {'User-Agent': 'Mozilla/5.0'}
+response = api.request('GET', url, headers=user_agent)
+# Use proxy
+r = urllib3.ProxyManager('http://proxy.example.com:8080')
+response = api.request('GET', url)
