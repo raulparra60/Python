@@ -1,0 +1,13 @@
+# Obtener tablas de PDF 
+# pip install camelot-py[cv]
+importar camelot como cm
+# Obtener todas las tablas de tablas PDF 
+= cm.read_pdf('file.pdf', flavor='stream', pages='all') 
+tables.export('file.csv', f='csv', compress=True)
+# Obtener una tabla específica de tablas PDF 
+= cm.read_pdf('file.pdf', flavor='stream', pages='1') 
+tables.export('file.csv', f='csv', compress=True)
+# Obtener y guardar en 
+tablas de Excel.export('file.xlsx', f='excel', compress=True)
+# Obtener y guardar en 
+tablas JSON.export('file.json', f='json', compress=True)
